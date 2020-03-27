@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { CashmereModule } from './cashmere/cashmere.module';
 // import { RouterModule, Routes } from '@angular/router';
 
 // import { InMemoryDataService } from './in-memory-data.service';
@@ -41,6 +42,7 @@ import { TopBarComponent } from './top-bar/top-bar.component';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    CashmereModule,
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.
     // Remove it when a real server is ready to receive requests.

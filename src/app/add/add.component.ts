@@ -5,7 +5,7 @@ import { FormBuilder, FormControl, Validators } from '@angular/forms'
 
 import { Person } from '../person';
 import { PersonService } from '../person.service';
-// import { FormFieldModule } from '@healthcatalyst/cashmere';
+import { FormFieldModule } from '@healthcatalyst/cashmere';
 
 @Component({
   selector: 'app-add',
@@ -28,7 +28,7 @@ export class AddComponent implements OnInit {
     private personService: PersonService,
     private location: Location,
     private formBuilder: FormBuilder,
-    // private formField: FormFieldModule,
+    private formField: FormFieldModule,
   ) {
     this.personForm = this.formBuilder.group({
       Gender: [''],

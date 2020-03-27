@@ -2,8 +2,8 @@
 <!-- <p>GivenName is required</p> -->
 <form [formGroup]="personForm" (ngSubmit)="onSubmit(personForm.value)">
     <div class="formInput"> <!-- *ngFor="formcontrolname in formgroup">-->
-        <p><label>Gender: </label><br>
-        <input hcInput type="text" formControlName="Gender" placeholder=" Male"></p>
+        <hc-form-field><hc-label>Gender: </hc-label><br>
+        <input hcInput type="text" formControlName="Gender" placeholder=" Male"></hc-form-field>
         <p><label>NameSet:</label><br>
         <input hcInput type="text" formControlName="NameSet" placeholder=" American"></p>
         <p><label>Title:</label><br>
