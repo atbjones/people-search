@@ -1,0 +1,38 @@
+<h2>People List</h2>
+<div *ngIf="people">
+    <table class="hc-table hc-action-table">
+        <thead>
+            <tr>
+                <th class="hc-col-sortable">ID</th>
+                <th class="hc-col-sortable">Given Name</th>
+                <th class="hc-col-sortable">Middle Initial</th>
+                <th class="hc-col-sortable">Surname</th>
+                <th >Telephone Number</th>
+                <th >Occupation</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let person of people.value">
+                <td><a routerLink="/people/{{person.Id}}">{{person.Id}}</a></td>
+                <td>{{person.GivenName}}</td>
+                <td>{{person.MiddleInitial}}</td>
+                <td>{{person.Surname}}</td>
+                <td>{{person.TelephoneNumber}}</td>
+                <td>{{person.Occupation}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<!-- <div *ngIf="people">
+    <ul class="people">
+        <li *ngFor="let person of people.value">
+            <a routerLink="/people/{{person.Id}}">
+                <span class="badge">{{ person.Id }}</span> 
+                {{ person.GivenName }}
+            </a>
+            <button class="delete" title="delete person"
+                (click)="delete(person)">x</button>
+        </li>
+    </ul>
+</div> -->
+<!-- <button class="loadMore" title="Load More" (click)="loadMore()">Load More</button> -->

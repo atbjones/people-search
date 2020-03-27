@@ -1,0 +1,97 @@
+<h3><i class="fa fa-user-plus"> Add Person</i></h3>
+<!-- <p>GivenName is required</p> -->
+<form [formGroup]="personForm" (ngSubmit)="onSubmit(personForm.value)">
+    <div class="formInput"> <!-- *ngFor="formcontrolname in formgroup">-->
+        <p><label>Gender: </label><br>
+        <input hcInput type="text" formControlName="Gender" placeholder=" Male"></p>
+        <p><label>NameSet:</label><br>
+        <input hcInput type="text" formControlName="NameSet" placeholder=" American"></p>
+        <p><label>Title:</label><br>
+        <input hcInput type="text" formControlName="Title" placeholder=" Mr."></p>
+        <p><label>GivenName:</label><br>
+        <input hcInput type="text" formControlName="GivenName" placeholder=" Billy"></p>
+        <p><label>MiddleInitial:</label><br>
+        <input hcInput type="text" formControlName="MiddleInitial" placeholder=" B"></p>
+        <p><label>Surname:</label><br>
+        <input hcInput type="text" formControlName="Surname" placeholder=" Bobby"></p>
+        <p><label>StreetAddress:</label><br>
+        <input hcInput type="text" formControlName="StreetAddress" placeholder=" 123 Fake Street"></p>
+        <p><label>City:</label><br>
+        <input hcInput type="text" formControlName="City" placeholder=" Salt Lake City"></p>
+        <p><label>State:</label><br>
+        <input hcInput type="text" formControlName="State" placeholder=" UT"></p>
+        <p><label>StateFull:</label><br>
+        <input hcInput type="text" formControlName="StateFull" placeholder=" Utah"></p>
+        <p><label>ZipCode:</label><br>
+        <input hcInput type="text" formControlName="ZipCode" placeholder=" 95060"></p>
+        <p><label>Country:</label><br>
+        <input hcInput type="text" formControlName="Country" placeholder=" USA"></p>
+        <p><label>CountryFull:</label><br>
+        <input hcInput type="text" formControlName="CountryFull" placeholder=" United States of America"></p>
+        <p><label>EmailAddress:</label><br>
+        <input hcInput type="text" formControlName="EmailAddress" placeholder=" bob@people.search.com"></p>
+        <p><label>Username:</label><br>
+        <input hcInput type="text" formControlName="Username" placeholder=" Bobby123"></p>
+        <p><label>Password:</label><br>
+        <input hcInput type="text" formControlName="Password" placeholder=" bobbyboy99"></p>
+        <p><label>BrowserUserAgent:</label><br>
+        <input hcInput type="text" formControlName="BrowserUserAgent" placeholder=" Mozilla/5.0"></p>
+        <p><label>TelephoneNumber:</label><br>
+        <input hcInput type="text" formControlName="TelephoneNumber" placeholder=" 123 456 7890"></p>
+        <p><label>TelephoneCountryCode:</label><br>
+        <input hcInput type="text" formControlName="TelephoneCountryCode" placeholder=" 1"></p>
+        <p><label>MothersMaiden:</label><br>
+        <input hcInput type="text" formControlName="MothersMaiden" placeholder=" Jane"></p>
+        <p><label>Birthday:</label><br>
+        <input hcInput type="text" formControlName="Birthday" placeholder=" 1990-07-01T00:00:00-07:00"></p>
+        <p><label>Age:</label><br>
+        <input hcInput type="text" formControlName="Age" placeholder=" 42"></p>
+        <p><label>TropicalZodiac:</label><br>
+        <input hcInput type="text" formControlName="TropicalZodiac" placeholder=" Pisces"></p>
+        <p><label>CCType:</label><br>
+        <input hcInput type="text" formControlName="CCType" placeholder=" MasterCard"></p>
+        <p><label>CCNumber:</label><br>
+        <input hcInput type="text" formControlName="CCNumber" placeholder=" 1234567823456789"></p>
+        <p><label>CVV2:</label><br>
+        <input hcInput type="text" formControlName="CVV2" placeholder=" 123"></p>
+        <p><label>CCExpires:</label><br>
+        <input hcInput type="text" formControlName="CCExpires" placeholder=" 1/2024"></p>
+        <p><label>NationalID:</label><br>
+        <input hcInput type="text" formControlName="NationalID" placeholder=" 1234567890123"></p>
+        <p><label>UPS:</label><br>
+        <input hcInput type="text" formControlName="UPS" placeholder=" 1Z 735 F86 80 4534 509 8"></p>
+        <p><label>WesternUnionMTCN:</label><br>
+        <input hcInput type="text" formControlName="WesternUnionMTCN" placeholder=" 0445765305"></p>
+        <p><label>MoneyGramMTCN:</label><br>
+        <input hcInput type="text" formControlName="MoneyGramMTCN" placeholder=" 41415180"></p>
+        <p><label>Color:</label><br>
+        <input hcInput type="text" formControlName="Color" placeholder=" Blue"></p>
+        <p><label>Occupation:</label><br>
+        <input hcInput type="text" formControlName="Occupation" placeholder=" Intern"></p>
+        <p><label>Company:</label><br>
+        <input hcInput type="text" formControlName="Company" placeholder=" Health Catalyst :)"></p>
+        <p><label>Vehicle:</label><br>
+        <input hcInput type="text" formControlName="Vehicle" placeholder=" 2001 Toyota Corolla"></p>
+        <p><label>Domain:</label><br>
+        <input hcInput type="text" formControlName="Domain" placeholder=" CareerContract.co.za"></p>
+        <p><label>BloodType:</label><br>
+        <input hcInput type="text" formControlName="BloodType" placeholder=" A-"></p>
+        <p><label>Pounds:</label><br>
+        <input hcInput type="text" formControlName="Pounds" placeholder=" 165"></p>
+        <p><label>Kilograms:</label><br>
+        <input hcInput type="text" formControlName="Kilograms" placeholder=" 80"></p>
+        <p><label>FeetInches:</label><br>
+        <input hcInput type="text" formControlName="FeetInches" placeholder=" 5' 11&rdquo;"></p>
+        <p><label>Centimeters:</label><br>
+        <input hcInput type="text" formControlName="Centimeters" placeholder=" 180"></p>
+        <p><label>GUID:</label><br>
+        <input hcInput type="text" formControlName="GUID" placeholder=" 0a2770b4-8e27-4cc9-b8c1-1d27de064bf9"></p>
+        <p><label>Latitude:</label><br>
+        <input hcInput type="text" formControlName="Latitude" placeholder=" 40.632934"></p>
+        <p><label>Longitude:</label><br>
+        <input hcInput type="text" formControlName="Longitude" placeholder=" -111.804025"></p>
+    </div>
+    <button type="submit" [disabled]=" !personForm.valid">Add</button>
+</form>
+<!-- <h2>Value:{{personDetails.GivenName.value | uppercase}} Details</h2> -->
+<button (click)="goBack()">Back</button>
