@@ -16,6 +16,7 @@ import { PeopleComponent } from './people/people.component';
 import { PeopleSearchComponent } from './people-search/people-search.component';
 import { AddComponent } from './add/add.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
+import { EditPersonComponent } from './edit-person/edit-person.component';
 
 // const appRoutes: Routes = [
 //   {
@@ -34,6 +35,7 @@ import { TopBarComponent } from './top-bar/top-bar.component';
     PeopleSearchComponent,
     AddComponent,
     TopBarComponent,
+    EditPersonComponent,
   ],
   imports: [
     BrowserModule,

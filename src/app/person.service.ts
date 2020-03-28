@@ -20,8 +20,13 @@ export class PersonService {
     private http: HttpClient,
   ) { }
 
-  getPeople(): Observable<Person[]> {
-    const url = `${this.apiUrl}People`;
+  getPeople(sort: string): Observable<Person[]> {
+    if (sort==''){
+      var url = `${this.apiUrl}People`;
+    } else {
+      var url = `${this.apiUrl}People?$orderby=${sort}`;
+    }
+
     return this.http.get<Person[]>(url).pipe(
       tap(_ => this.log(`fetched people`)),
       catchError(this.handleError<Person[]>(`getPeople`))

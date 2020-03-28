@@ -1,10 +1,15 @@
 <h2>People List</h2>
-<div *ngIf="people">
+<table hc-table [dataSource]="dataSource" hcSort>
+    <ng-container hcColumnDef="GivenName">
+        <th hc-header-cell *hcHeaderCellDef hc-sort-header></th>
+    </ng-container>
+</table>
+<!-- <div *ngIf="people; else elseBlock">
     <table class="hc-table hc-action-table">
         <thead>
             <tr>
-                <th class="hc-col-sortable">ID</th>
-                <th class="hc-col-sortable">Given Name</th>
+                <th class="hc-col-sortable" (click)="sortBy('Id')">ID</th>
+                <th class="hc-col-sortable" (click)="sortBy('GivenName')">Given Name</th>
                 <th class="hc-col-sortable">Middle Initial</th>
                 <th class="hc-col-sortable">Surname</th>
                 <th >Telephone Number</th>
@@ -12,8 +17,8 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let person of people.value">
-                <td><a routerLink="/people/{{person.Id}}">{{person.Id}}</a></td>
+            <tr *ngFor="let person of people.value | slice:0:loadAmount" routerLink="/people/{{person.Id}}">
+                <td>{{person.Id}}</td>
                 <td>{{person.GivenName}}</td>
                 <td>{{person.MiddleInitial}}</td>
                 <td>{{person.Surname}}</td>
@@ -22,7 +27,10 @@
             </tr>
         </tbody>
     </table>
-</div>
+</div> -->
+<ng-template #elseBlock>
+    <h3>Loading...</h3>
+</ng-template>
 <!-- <div *ngIf="people">
     <ul class="people">
         <li *ngFor="let person of people.value">
@@ -35,4 +43,4 @@
         </li>
     </ul>
 </div> -->
-<!-- <button class="loadMore" title="Load More" (click)="loadMore()">Load More</button> -->
+<button class="loadMore" title="Load More" (click)="loadMore()">Load More</button>

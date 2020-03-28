@@ -8,11 +8,11 @@ import { PersonService } from '../person.service';
 import { FormFieldModule } from '@healthcatalyst/cashmere';
 
 @Component({
-  selector: 'app-add',
-  templateUrl: './add.component.html',
-  styleUrls: ['./add.component.scss']
+  selector: 'app-edit-person',
+  templateUrl: './edit-person.component.html',
+  styleUrls: ['./edit-person.component.scss']
 })
-export class AddComponent implements OnInit {
+export class EditPersonComponent implements OnInit {
   selectControl = new FormControl('daily');
   inputControl = new FormControl('');
 
@@ -21,7 +21,7 @@ export class AddComponent implements OnInit {
     this.inputControl.setErrors({incorrect: true});
   }
   personForm;
-  person: Person;
+  @Input() person: Person;
 
   constructor(
     private route: ActivatedRoute,
@@ -79,11 +79,62 @@ export class AddComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.person = {} as Person;
+    this.getPerson();
   }
-
+  
   goBack(): void {
     this.location.back();
+  }
+  
+  getPerson(): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.personService.getPerson(id)
+    .subscribe(person => {this.person = person;
+      this.personForm.get('Gender').setValue(this.person.Gender);
+      this.personForm.get('NameSet').setValue(this.person.NameSet);
+      this.personForm.get('Title').setValue(this.person.Title);
+      this.personForm.get('GivenName').setValue(this.person.GivenName);
+      this.personForm.get('MiddleInitial').setValue(this.person.MiddleInitial);
+      this.personForm.get('Surname').setValue(this.person.Surname);
+      this.personForm.get('StreetAddress').setValue(this.person.StreetAddress);
+      this.personForm.get('City').setValue(this.person.City);
+      this.personForm.get('State').setValue(this.person.State);
+      this.personForm.get('StateFull').setValue(this.person.StateFull);
+      this.personForm.get('ZipCode').setValue(this.person.ZipCode);
+      this.personForm.get('Country').setValue(this.person.Country);
+      this.personForm.get('CountryFull').setValue(this.person.CountryFull);
+      this.personForm.get('EmailAddress').setValue(this.person.EmailAddress);
+      this.personForm.get('Username').setValue(this.person.Username);
+      this.personForm.get('Password').setValue(this.person.Password);
+      this.personForm.get('BrowserUserAgent').setValue(this.person.BrowserUserAgent);
+      this.personForm.get('TelephoneNumber').setValue(this.person.TelephoneNumber);
+      this.personForm.get('TelephoneCountryCode').setValue(this.person.TelephoneCountryCode);
+      this.personForm.get('MothersMaiden').setValue(this.person.MothersMaiden);
+      this.personForm.get('Birthday').setValue(this.person.Birthday);
+      this.personForm.get('Age').setValue(this.person.Age);
+      this.personForm.get('TropicalZodiac').setValue(this.person.TropicalZodiac);
+      this.personForm.get('CCType').setValue(this.person.CCType);
+      this.personForm.get('CCNumber').setValue(this.person.CCNumber);
+      this.personForm.get('CVV2').setValue(this.person.CVV2);
+      this.personForm.get('CCExpires').setValue(this.person.CCExpires);
+      this.personForm.get('NationalID').setValue(this.person.NationalID);
+      this.personForm.get('UPS').setValue(this.person.UPS);
+      this.personForm.get('WesternUnionMTCN').setValue(this.person.WesternUnionMTCN);
+      this.personForm.get('MoneyGramMTCN').setValue(this.person.MoneyGramMTCN);
+      this.personForm.get('Color').setValue(this.person.Color);
+      this.personForm.get('Occupation').setValue(this.person.Occupation);
+      this.personForm.get('Company').setValue(this.person.Company);
+      this.personForm.get('Vehicle').setValue(this.person.Vehicle);
+      this.personForm.get('Domain').setValue(this.person.Domain);
+      this.personForm.get('BloodType').setValue(this.person.BloodType);
+      this.personForm.get('Pounds').setValue(this.person.Pounds);
+      this.personForm.get('Kilograms').setValue(this.person.Kilograms);
+      this.personForm.get('FeetInches').setValue(this.person.FeetInches);
+      this.personForm.get('Centimeters').setValue(this.person.Centimeters);
+      this.personForm.get('GUID').setValue(this.person.GUID);
+      this.personForm.get('Latitude').setValue(this.person.Latitude);
+      this.personForm.get('Longitude').setValue(this.person.Longitude);
+    });
   }
 
   onSubmit(personData): void {
@@ -137,6 +188,6 @@ export class AddComponent implements OnInit {
     //   else
     //     this.person.field = personData.field;
     // }
-    this.personService.addPerson(this.person).subscribe(() => this.goBack())
+    this.personService.updatePerson(this.person).subscribe(() => this.goBack())
   }
 }
