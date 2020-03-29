@@ -1,0 +1,41 @@
+<p><br>
+    This is an Angular based web application that searches a database of people, designed to work with the provided people-search-api.<br>
+    <br>
+    The search will match any part of a persons name, e.g. a search of "bob" would return the users: 'Bob Bill', 'Bill Bobby', and 'Jimbob Bill'<br>
+    <br>
+    The search automatically searches the database when users type in the search box. <br>
+    Normally this would be very expensive as it would send a GET request on each keystroke.<br>
+    To prevent this, I implemented a feature that will slow down network requests by waiting 300ms <br>
+    after each keystroke before considering the term, and ignoring the new term if it is the same as the previous term.<br>
+<br>
+    The full details of a person can be viewed by clicking on them from the list of people.<br>
+    A person can be edited by clicking the 'Edit' button on their details page and then clicking the 'Save Changes' button.<br>
+<br>
+    Users can be created with the 'Add' tab on the navbar.<br>
+<br>
+    It implements Reactive Forms and Cashmere.<br>
+    <br>
+    This web app uses Cashmere and I used as much of the Health Catalyst style guide as possible. <br>
+<br>
+    The people.Search icon I made myself in inkscape using Health Catalyst primary brand typeface 'Flexo'<br>
+<br>
+    Certain features gave me trouble and I ended up implementing them in a less than ideal way.<br>
+<br>
+    I tried to implement the table sort from 'cashmere.healthcatalyst.net/components/table/examples', <br>
+    but I got an 'ERROR TypeError: "this._platform is undefined"' and 'ERROR TypeError: "this._stickyStyler is undefined"' in the console.<br>
+    <br>
+    To get around this, I added a 'sort' term to my getPeople() function in person.service.ts, <br>
+    and modified it to use OData Query '.../People?$orderby=$sort'.<br>
+    Each time a column head is clicked, it sends a new GET request to get the list of people in the order of the attribute that was clicked.<br>
+    It is less efficient and clean than using the Cashmere table sort, but it was the only way I managed to sort the table without spending<br>
+    another X amount of time.<br>
+<br>
+    Another thing I think could be improved in this app is to display a list-item/label/input somehow using for-each(element of a Person)<br>
+    rather than hard-code each element in 'people-detail', 'add', and 'edit'. I'm not sure if it is possible, but it would make the code<br>
+    much cleaner.<br>
+<br>
+    I spent a lot of time and effort working on this project (mostly familiarizing myself with Angular). Hopefully that is reflected in my end result.<br>
+<br>
+    P.S.<br>
+    There is a cool easter egg in the placeholder values of add :)<br>
+</p>

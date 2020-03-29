@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -17,6 +18,7 @@ import { PeopleSearchComponent } from './people-search/people-search.component';
 import { AddComponent } from './add/add.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { EditPersonComponent } from './edit-person/edit-person.component';
+import { AboutComponent } from './about/about.component';
 
 // const appRoutes: Routes = [
 //   {
@@ -36,10 +38,12 @@ import { EditPersonComponent } from './edit-person/edit-person.component';
     AddComponent,
     TopBarComponent,
     EditPersonComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    BrowserAnimationsModule,
     // RouterModule.forRoot(appRoutes),
     AppRoutingModule,
     HttpClientModule,
@@ -53,6 +57,7 @@ import { EditPersonComponent } from './edit-person/edit-person.component';
     // )
   ],
   providers: [],
+  entryComponents: [PeopleComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

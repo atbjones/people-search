@@ -26,7 +26,6 @@ export class PersonService {
     } else {
       var url = `${this.apiUrl}People?$orderby=${sort}`;
     }
-
     return this.http.get<Person[]>(url).pipe(
       tap(_ => this.log(`fetched people`)),
       catchError(this.handleError<Person[]>(`getPeople`))

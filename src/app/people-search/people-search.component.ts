@@ -21,6 +21,7 @@ export class PeopleSearchComponent implements OnInit {
   private searchTerms = new Subject<string>();
   // term: string;
   by: string;
+  loadAmount: number;
 
   constructor(private personService: PersonService) { }
 
@@ -41,6 +42,7 @@ export class PeopleSearchComponent implements OnInit {
 
   ngOnInit(): void {
     this.by = "Name";
+    this.loadAmount = 50;
     // this.term = "";
     // this.searchPeople();
     this.people = this.searchTerms.pipe(
@@ -64,6 +66,12 @@ export class PeopleSearchComponent implements OnInit {
   delete(person: Person): void {
     this.people.value = this.people.value.filter(p => p !== person);
     this.personService.deletePerson(person).subscribe();
+  }
+
+  loadMore(): void {
+    this.loadAmount += 50;
+    console.log(this.loadAmount);
+    // this.getPeople(this.Lmount);
   }
 
   confirm(person: Person): void {

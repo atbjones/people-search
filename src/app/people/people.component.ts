@@ -9,14 +9,16 @@ import { HcTableDataSource, HcSort } from '@healthcatalyst/cashmere';
 import { TableModule } from '@healthcatalyst/cashmere';
 // import { PEOPLE } from '../mock-people';
 
-export interface testElement {
-  Id: number;
-  name: string;
-}
-const DATA: testElement[] = [
-    {Id:1, name: 'Fart'},
+// export interface testElement {
+//   Id: number;
+//   name: string;
+// }
+// const DATA: testElement[] = [
+//     {Id:1, name: 'Fart'},
+//     {Id:2, name: 'farter'}
     
-  ]
+//   ];
+  
 @Component({
   selector: 'app-people',
   templateUrl: './people.component.html',
@@ -26,11 +28,11 @@ export class PeopleComponent implements OnInit {
   people: Config;
   loadAmount: number;
 
-  displayedColumns: string[] = ['Id, GivenName'];
-  dataSource: HcTableDataSource<testElement>;
+  // displayedColumns = ['Id', 'name'];
+  // dataSource: HcTableDataSource<Person>;
 
-  @ViewChild(HcSort)
-  sort:HcSort;
+  // @ViewChild(HcSort)
+  // sort:HcSort;
   
 
   constructor(
@@ -45,8 +47,8 @@ export class PeopleComponent implements OnInit {
     this.getPeople('');
     this.loadAmount = 50;
 
-    this.dataSource = new HcTableDataSource(DATA);
-    this.dataSource.sort = this.sort;
+    // this.dataSource = new HcTableDataSource(DATA);
+    // this.dataSource.sort = this.sort;
   }
 
 
@@ -86,6 +88,4 @@ export class PeopleComponent implements OnInit {
     this.people.value = this.people.value.filter(p => p !== person);
     this.personService.deletePerson(person).subscribe();
   }
-
-  
 }

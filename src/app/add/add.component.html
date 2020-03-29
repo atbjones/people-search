@@ -1,6 +1,8 @@
 <h3><i class="fa fa-user-plus"> Add Person</i></h3>
 <!-- <hc-form-field>GivenName is required</hc-form-field> -->
 <form [formGroup]="personForm" (ngSubmit)="onSubmit(personForm.value)">
+    <!-- <button hc-button buttonStyle="secondary" (click)="goBack()">Back</button> -->
+    <button hc-button type="submit" buttonStyle="primary">Add</button>
     <div class="formInput"> <!-- *ngFor="formcontrolname in formgroup">-->
         <hc-form-field><hc-label>Gender: </hc-label><br>
         <input hcInput formControlName="Gender" placeholder=" Male"></hc-form-field>
@@ -9,11 +11,13 @@
         <hc-form-field><hc-label>Title:</hc-label><br>
         <input hcInput formControlName="Title" placeholder=" Mr."></hc-form-field>
         <hc-form-field><hc-label>GivenName:</hc-label><br>
-        <input hcInput formControlName="GivenName" placeholder=" Billy"></hc-form-field>
+        <input hcInput required formControlName="GivenName" placeholder=" Atticus">
+        <hc-error>A GivenName is required</hc-error>
+        </hc-form-field>
         <hc-form-field><hc-label>MiddleInitial:</hc-label><br>
         <input hcInput formControlName="MiddleInitial" placeholder=" B"></hc-form-field>
         <hc-form-field><hc-label>Surname:</hc-label><br>
-        <input hcInput formControlName="Surname" placeholder=" Bobby"></hc-form-field>
+        <input hcInput formControlName="Surname" placeholder=" Jones"></hc-form-field>
         <hc-form-field><hc-label>StreetAddress:</hc-label><br>
         <input hcInput formControlName="StreetAddress" placeholder=" 123 Fake Street"></hc-form-field>
         <hc-form-field><hc-label>City:</hc-label><br>
@@ -23,7 +27,7 @@
         <hc-form-field><hc-label>StateFull:</hc-label><br>
         <input hcInput formControlName="StateFull" placeholder=" Utah"></hc-form-field>
         <hc-form-field><hc-label>ZipCode:</hc-label><br>
-        <input hcInput formControlName="ZipCode" placeholder=" 95060"></hc-form-field>
+        <input hcInput formControlName="ZipCode" placeholder=" 84108"></hc-form-field>
         <hc-form-field><hc-label>Country:</hc-label><br>
         <input hcInput formControlName="Country" placeholder=" USA"></hc-form-field>
         <hc-form-field><hc-label>CountryFull:</hc-label><br>
@@ -67,9 +71,9 @@
         <hc-form-field><hc-label>Color:</hc-label><br>
         <input hcInput formControlName="Color" placeholder=" Blue"></hc-form-field>
         <hc-form-field><hc-label>Occupation:</hc-label><br>
-        <input hcInput formControlName="Occupation" placeholder=" Intern"></hc-form-field>
+        <input hcInput formControlName="Occupation" placeholder=" Prospective Intern :)"></hc-form-field>
         <hc-form-field><hc-label>Company:</hc-label><br>
-        <input hcInput formControlName="Company" placeholder=" Health Catalyst :)"></hc-form-field>
+        <input hcInput formControlName="Company" placeholder=" Health Catalyst"></hc-form-field>
         <hc-form-field><hc-label>Vehicle:</hc-label><br>
         <input hcInput formControlName="Vehicle" placeholder=" 2001 Toyota Corolla"></hc-form-field>
         <hc-form-field><hc-label>Domain:</hc-label><br>
@@ -91,7 +95,7 @@
         <hc-form-field><hc-label>Longitude:</hc-label><br>
         <input hcInput formControlName="Longitude" placeholder=" -111.804025"></hc-form-field>
     </div>
-    <button type="submit" [disabled]=" !personForm.valid">Add</button>
+    <!-- <button hc-button (click)="goBack()" buttonStyle="secondary">Back</button> -->
+    <button hc-button type="submit" buttonStyle="primary" >Add</button>
 </form>
 <!-- <h2>Value:{{personDetails.GivenName.value | uppercase}} Details</h2> -->
-<button (click)="goBack()">Back</button>

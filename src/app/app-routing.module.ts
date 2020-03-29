@@ -6,6 +6,7 @@ import { PeopleComponent } from './people/people.component';
 import { PeopleDetailComponent } from './people-detail/people-detail.component';
 import { AddComponent } from './add/add.component';
 import { EditPersonComponent } from './edit-person/edit-person.component';
+import { AboutComponent } from './about/about.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/search', pathMatch: 'full' },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'edit/:id', component: EditPersonComponent },
   { path: 'people', component: PeopleComponent },
   { path: 'add', component: AddComponent },
+  { path: 'about', component: AboutComponent },
 ]
 
 @NgModule({

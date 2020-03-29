@@ -1,7 +1,9 @@
 <div *ngIf="person">
-<h3><i class="fa fa-edit"></i> Edit {{person.GivenName}} {{person.Surname}}</h3>
+<h3><i class="fa fa-edit"> Edit {{person.GivenName}} {{person.Surname}}</i> </h3>
 <!-- <hc-form-field>GivenName is required</hc-form-field> -->
 <form [formGroup]="personForm" (ngSubmit)="onSubmit(personForm.value)">
+    <button hc-button buttonStyle="secondary" (click)="goBack()">Back</button>
+    <button hc-button buttonStyle="primary" type="submit" [disabled]=" !personForm.valid">Save Changes</button>
     <div class="formInput"> <!-- *ngFor="formcontrolname in formgroup">-->
         <hc-form-field><hc-label>Gender: </hc-label>
         <input hcInput formControlName="Gender" ></hc-form-field>
@@ -92,8 +94,8 @@
         <hc-form-field><hc-label>Longitude:</hc-label>
         <input hcInput formControlName="Longitude" ></hc-form-field>
     </div>
-    <button type="submit" [disabled]=" !personForm.valid">Save Changes</button>
+    <button hc-button buttonStyle="secondary" (click)="goBack()">Back</button>
+    <button hc-button buttonStyle="primary" type="submit" [disabled]=" !personForm.valid">Save Changes</button>
 </form>
 </div>
 <!-- <h2>Value:{{personDetails.GivenName.value | uppercase}} Details</h2> -->
-<button (click)="goBack()">Back</button>

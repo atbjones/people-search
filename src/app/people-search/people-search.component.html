@@ -1,5 +1,5 @@
 <div id="search-component">
-    <h3><i class="fa fa-users"></i><label for="search-box"> Person Search</label></h3>
+    <h3><i class="fa fa-search"><label for="search-box"> Person Search</label></i></h3>
 
     <!-- <form name="myForm">
         <label for="singleSelect"> Sort By </label><br>
@@ -17,19 +17,49 @@
     </ul> -->
 </div>
 <!-- <button (click)="searchPeople()">Search</button> -->
-
-<div id="search-results" *ngIf="people.value">
+<div *ngIf="searchBox.value && people.value">
+    <div *ngIf="people.value.length > 0; else noResults"> 
+            <table class="hc-table hc-action-table">
+                <thead>
+                    <tr>
+                        <th >ID</th>
+                        <th >Given Name</th>
+                        <th >Middle Initial</th>
+                        <th >Surname</th>
+                        <th >Country</th>
+                        <th >Telephone Number</th>
+                        <th >Occupation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let person of people.value | slice:0:loadAmount" routerLink="/people/{{person.Id}}">
+                        <td>{{person.Id}}</td>
+                        <td>{{person.GivenName}}</td>
+                        <td>{{person.MiddleInitial}}</td>
+                        <td>{{person.Surname}}</td>
+                        <td>{{person.Country}}</td>
+                        <td>{{person.TelephoneNumber}}</td>
+                        <td>{{person.Occupation}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div *ngIf="people.value.length > loadAmount">
+                <button hc-button class="loadMore" buttonStyle="secondary" title="Load More" (click)="loadMore()">Load More</button>
+            </div>
+    </div>
+    <ng-template #noResults>
+            <br><span>No Results...</span>
+        </ng-template>
+</div>
+<!-- <div id="search-results" *ngIf="people.value">
     <ul class="people-results">
         <li *ngFor="let person of people.value">
             <a routerLink="/people/{{person.Id}}">
-                <!-- <span class="badge">{{ person.Id }}</span>  -->
                 {{ person.GivenName }} {{ person.Surname }}
             </a><br>
-            <!-- <button class="delete" title="delete person"
-                (click)="confirm(person)">x</button> -->
         </li>
     </ul>
-</div>
+</div> -->
 <!-- <ng-template #elseBlock>
     <p>No Results</p>
 </ng-template> -->
@@ -43,5 +73,4 @@
       </select><br>
     </form>
 </div> -->
-  
   
