@@ -1,6 +1,6 @@
 ## Running the API
 
-### Prerequisites
+## Prerequisites
 
 The People API uses dotnet core version 3.1. Make sure that you have that version installed before you proceed.
 The people-search web app uses Cashmere. Make sure that you have that installed. https://cashmere.healthcatalyst.net/guides/getting-started
