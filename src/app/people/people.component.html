@@ -1,32 +1,24 @@
 <h3><i class="fa fa-users"> People List</i></h3>
-<!-- <table hc-table [dataSource]="dataSource" hcSort>
-    <ng-container hcColumnDef="Id">
-        <th hc-header-cell *hcHeaderCellDef hc-sort-header>Id</th>
-        <td hc-cell *hcCellDef="let user"> {{user.Id}}</td>
-    </ng-container>
-    <ng-container hcColumnDef="name">
-        <th hc-header-cell *hcHeaderCellDef hc-sort-header>Name</th>
-        <td hc-cell *hcCellDef="let user"> {{user.name}}</td>
-    </ng-container>
-    <tr hc-header-row *hcHeaderRowDef="displayedColumns"></tr>
-    <tr hc-row *hcRowDef="let row; columns: displayedColumns"></tr>
-</table> -->
-<!-- <input #searchBox id="search-box" (input)="search(searchBox.value)" /> -->
+
 <div *ngIf="people; else elseBlock">
     <table class="hc-table hc-action-table">
         <thead>
             <tr>
                 <th class="hc-col-sortable" (click)="sortBy('Id')">ID</th>
-                <th class="hc-col-sortable" (click)="sortBy('GivenName')">Given Name</th>
+                <th class="hc-col-sortable" 
+                    (click)="sortBy('GivenName')">Given Name</th>
                 <th>Middle Initial</th>
-                <th class="hc-col-sortable" (click)="sortBy('Surname')">Surname</th>
-                <th class="hc-col-sortable" (click)="sortBy('Country')">Country</th>
+                <th class="hc-col-sortable" 
+                    (click)="sortBy('Surname')">Surname</th>
+                <th class="hc-col-sortable" 
+                    (click)="sortBy('Country')">Country</th>
                 <th >Telephone Number</th>
                 <th >Occupation</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let person of people.value | slice:0:loadAmount" routerLink="/people/{{person.Id}}">
+            <tr *ngFor="let person of people.value | slice:0:loadAmount" 
+                routerLink="/people/{{person.Id}}">
                 <td>{{person.Id}}</td>
                 <td>{{person.GivenName}}</td>
                 <td>{{person.MiddleInitial}}</td>
@@ -37,20 +29,9 @@
             </tr>
         </tbody>
     </table>
-    <button hc-button title="Load More" buttonStyle="secondary" (click)="loadMore()">Load More</button>
+    <button hc-button title="Load More" buttonStyle="secondary" 
+        (click)="loadMore()">Load More</button>
 </div>
 <ng-template #elseBlock>
     <h3>Loading...</h3>
 </ng-template>
-<!-- <div *ngIf="people">
-    <ul class="people">
-        <li *ngFor="let person of people.value">
-            <a routerLink="/people/{{person.Id}}">
-                <span class="badge">{{ person.Id }}</span> 
-                {{ person.GivenName }}
-            </a>
-            <button class="delete" title="delete person"
-                (click)="delete(person)">x</button>
-        </li>
-    </ul>
-</div> -->

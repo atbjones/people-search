@@ -1,11 +1,14 @@
-import { Component, OnInit, Input, TemplateRef } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
-import { FormBuilder, FormControl, Validators } from '@angular/forms'
+import { FormBuilder, Validators } from '@angular/forms'
 
 import { Person } from '../person';
 import { PersonService } from '../person.service';
-import { FormFieldModule, HcToasterService, HcToastOptions, HcToastRef } from '@healthcatalyst/cashmere';
+import { 
+  HcToasterService, 
+  HcToastOptions, 
+  HcToastRef 
+} from '@healthcatalyst/cashmere';
 
 @Component({
   selector: 'app-add',
@@ -13,10 +16,6 @@ import { FormFieldModule, HcToasterService, HcToastOptions, HcToastRef } from '@
   styleUrls: ['./add.component.scss']
 })
 export class AddComponent implements OnInit {
-  // selectControl = new FormControl('daily');
-  inputControl = new FormControl('');
-  newId: number;
-  newGivenName: string;
 
   personForm;
   person: Person;
@@ -32,11 +31,9 @@ export class AddComponent implements OnInit {
   progressValue: number = 75;
 
   constructor(
-    private route: ActivatedRoute,
     private personService: PersonService,
     private location: Location,
     private formBuilder: FormBuilder,
-    private formField: FormFieldModule,
     private toasterService: HcToasterService,
   ) {
     this.personForm = this.formBuilder.group({
@@ -87,10 +84,6 @@ export class AddComponent implements OnInit {
     })
   }
 
-  invalidForm() {
-    // this.selectControl.setErrors({incorrect: true});
-    this.inputControl.setErrors({incorrect: true});
-  }
   ngOnInit(): void {
     this.person = {} as Person;
   }
@@ -101,7 +94,7 @@ export class AddComponent implements OnInit {
 
   onSubmit(personData): void {
     if( personData.GivenName == ''){
-
+      // Do Nothing
     } else {
       this.person.Gender = personData.Gender;
       this.person.NameSet = personData.NameSet;
@@ -147,19 +140,10 @@ export class AddComponent implements OnInit {
       this.person.GUID = personData.GUID;
       this.person.Latitude = +personData.Latitude;
       this.person.Longitude = +personData.Longitude
-      // for (const field in this.personForm.controls) {
-      //   if (TCC, age, pounds, kgs, cm, lat, lon)
-      //     this.person.field = +personData.field;
-      //   else
-      //     this.person.field = personData.field;
-      // }
+
       this.personService.addPerson(this.person).subscribe(newPerson => {
-        this.newId = newPerson.Id;
-        this.newGivenName = newPerson.GivenName;
-        this.toastBody = `Added ${this.newGivenName}. Id: ${this.newId}`
+        this.toastBody = `Added ${newPerson.GivenName}. Id: ${newPerson.Id}`
         this.showToast();
-        // console.log(this.newId);
-        // console.log(this.location);
       })
     }
   }
@@ -167,22 +151,22 @@ export class AddComponent implements OnInit {
   showToast() {
     let showProgress = false;
     if (parseInt(this.toastProgress, 10) > 0) {
-        showProgress = true;
+      showProgress = true;
     }
 
     let toastOutput: HcToastRef;
     let options: HcToastOptions = {
-        header: this.toastHeader,
-        body: this.toastBody,
-        position: this.toastPosition,
-        timeout: this.toastTimeout,
-        clickDismiss: this.toastClick,
-        type: this.toastType,
-        width: this.toastWidth,
-        hasProgressBar: showProgress
+      header: this.toastHeader,
+      body: this.toastBody,
+      position: this.toastPosition,
+      timeout: this.toastTimeout,
+      clickDismiss: this.toastClick,
+      type: this.toastType,
+      width: this.toastWidth,
+      hasProgressBar: showProgress
     };
 
-        toastOutput = this.toasterService.addToast(options);
+    toastOutput = this.toasterService.addToast(options);
 
     if (this.toastProgress === '2') {
         toastOutput.progress = this.progressValue;

@@ -1,101 +1,202 @@
 <h3><i class="fa fa-user-plus"> Add Person</i></h3>
-<!-- <hc-form-field>GivenName is required</hc-form-field> -->
 <form [formGroup]="personForm" (ngSubmit)="onSubmit(personForm.value)">
-    <!-- <button hc-button buttonStyle="secondary" (click)="goBack()">Back</button> -->
     <button hc-button type="submit" buttonStyle="primary">Add</button>
-    <div class="formInput"> <!-- *ngFor="formcontrolname in formgroup">-->
-        <hc-form-field><hc-label>Gender: </hc-label><br>
-        <input hcInput formControlName="Gender" placeholder=" Male"></hc-form-field>
-        <hc-form-field><hc-label>NameSet:</hc-label><br>
-        <input hcInput formControlName="NameSet" placeholder=" American"></hc-form-field>
-        <hc-form-field><hc-label>Title:</hc-label><br>
-        <input hcInput formControlName="Title" placeholder=" Mr."></hc-form-field>
-        <hc-form-field><hc-label>GivenName:</hc-label><br>
-        <input hcInput required formControlName="GivenName" placeholder=" Atticus">
+    <div class="formInput">
+        <hc-form-field>
+			<hc-label>Gender: </hc-label><br>
+        	<input hcInput formControlName="Gender" placeholder=" Male">
+		</hc-form-field>
+        <hc-form-field>
+			<hc-label>NameSet:</hc-label><br>
+        	<input hcInput formControlName="NameSet" placeholder=" American">
+		</hc-form-field>
+        <hc-form-field>
+			<hc-label>Title:</hc-label><br>
+        	<input hcInput formControlName="Title" placeholder=" Mr.">
+		</hc-form-field>
+        <hc-form-field>
+			<hc-label>GivenName:</hc-label><br>
+			  <input hcInput required formControlName="GivenName" 
+			  placeholder=" Atticus">
         <hc-error>A GivenName is required</hc-error>
         </hc-form-field>
-        <hc-form-field><hc-label>MiddleInitial:</hc-label><br>
-        <input hcInput formControlName="MiddleInitial" placeholder=" B"></hc-form-field>
-        <hc-form-field><hc-label>Surname:</hc-label><br>
-        <input hcInput formControlName="Surname" placeholder=" Jones"></hc-form-field>
-        <hc-form-field><hc-label>StreetAddress:</hc-label><br>
-        <input hcInput formControlName="StreetAddress" placeholder=" 123 Fake Street"></hc-form-field>
-        <hc-form-field><hc-label>City:</hc-label><br>
-        <input hcInput formControlName="City" placeholder=" Salt Lake City"></hc-form-field>
-        <hc-form-field><hc-label>State:</hc-label><br>
-        <input hcInput formControlName="State" placeholder=" UT"></hc-form-field>
-        <hc-form-field><hc-label>StateFull:</hc-label><br>
-        <input hcInput formControlName="StateFull" placeholder=" Utah"></hc-form-field>
-        <hc-form-field><hc-label>ZipCode:</hc-label><br>
-        <input hcInput formControlName="ZipCode" placeholder=" 84108"></hc-form-field>
-        <hc-form-field><hc-label>Country:</hc-label><br>
-        <input hcInput formControlName="Country" placeholder=" USA"></hc-form-field>
-        <hc-form-field><hc-label>CountryFull:</hc-label><br>
-        <input hcInput formControlName="CountryFull" placeholder=" United States of America"></hc-form-field>
-        <hc-form-field><hc-label>EmailAddress:</hc-label><br>
-        <input hcInput formControlName="EmailAddress" placeholder=" bob@people.search.com"></hc-form-field>
-        <hc-form-field><hc-label>Username:</hc-label><br>
-        <input hcInput formControlName="Username" placeholder=" Bobby123"></hc-form-field>
-        <hc-form-field><hc-label>Password:</hc-label><br>
-        <input hcInput formControlName="Password" placeholder=" bobbyboy99"></hc-form-field>
-        <hc-form-field><hc-label>BrowserUserAgent:</hc-label><br>
-        <input hcInput formControlName="BrowserUserAgent" placeholder=" Mozilla/5.0"></hc-form-field>
-        <hc-form-field><hc-label>TelephoneNumber:</hc-label><br>
-        <input hcInput formControlName="TelephoneNumber" placeholder=" 123 456 7890"></hc-form-field>
-        <hc-form-field><hc-label>TelephoneCountryCode:</hc-label><br>
-        <input hcInput formControlName="TelephoneCountryCode" placeholder=" 1"></hc-form-field>
-        <hc-form-field><hc-label>MothersMaiden:</hc-label><br>
-        <input hcInput formControlName="MothersMaiden" placeholder=" Jane"></hc-form-field>
-        <hc-form-field><hc-label>Birthday:</hc-label><br>
-        <input hcInput formControlName="Birthday" placeholder=" 1990-07-01T00:00:00-07:00"></hc-form-field>
-        <hc-form-field><hc-label>Age:</hc-label><br>
-        <input hcInput formControlName="Age" placeholder=" 42"></hc-form-field>
-        <hc-form-field><hc-label>TropicalZodiac:</hc-label><br>
-        <input hcInput formControlName="TropicalZodiac" placeholder=" Pisces"></hc-form-field>
-        <hc-form-field><hc-label>CCType:</hc-label><br>
-        <input hcInput formControlName="CCType" placeholder=" MasterCard"></hc-form-field>
-        <hc-form-field><hc-label>CCNumber:</hc-label><br>
-        <input hcInput formControlName="CCNumber" placeholder=" 1234567823456789"></hc-form-field>
-        <hc-form-field><hc-label>CVV2:</hc-label><br>
-        <input hcInput formControlName="CVV2" placeholder=" 123"></hc-form-field>
-        <hc-form-field><hc-label>CCExpires:</hc-label><br>
-        <input hcInput formControlName="CCExpires" placeholder=" 1/2024"></hc-form-field>
-        <hc-form-field><hc-label>NationalID:</hc-label><br>
-        <input hcInput formControlName="NationalID" placeholder=" 1234567890123"></hc-form-field>
-        <hc-form-field><hc-label>UPS:</hc-label><br>
-        <input hcInput formControlName="UPS" placeholder=" 1Z 735 F86 80 4534 509 8"></hc-form-field>
-        <hc-form-field><hc-label>WesternUnionMTCN:</hc-label><br>
-        <input hcInput formControlName="WesternUnionMTCN" placeholder=" 0445765305"></hc-form-field>
-        <hc-form-field><hc-label>MoneyGramMTCN:</hc-label><br>
-        <input hcInput formControlName="MoneyGramMTCN" placeholder=" 41415180"></hc-form-field>
-        <hc-form-field><hc-label>Color:</hc-label><br>
-        <input hcInput formControlName="Color" placeholder=" Blue"></hc-form-field>
-        <hc-form-field><hc-label>Occupation:</hc-label><br>
-        <input hcInput formControlName="Occupation" placeholder=" Prospective Intern :)"></hc-form-field>
-        <hc-form-field><hc-label>Company:</hc-label><br>
-        <input hcInput formControlName="Company" placeholder=" Health Catalyst"></hc-form-field>
-        <hc-form-field><hc-label>Vehicle:</hc-label><br>
-        <input hcInput formControlName="Vehicle" placeholder=" 2001 Toyota Corolla"></hc-form-field>
-        <hc-form-field><hc-label>Domain:</hc-label><br>
-        <input hcInput formControlName="Domain" placeholder=" CareerContract.co.za"></hc-form-field>
-        <hc-form-field><hc-label>BloodType:</hc-label><br>
-        <input hcInput formControlName="BloodType" placeholder=" A-"></hc-form-field>
-        <hc-form-field><hc-label>Pounds:</hc-label><br>
-        <input hcInput formControlName="Pounds" placeholder=" 165"></hc-form-field>
-        <hc-form-field><hc-label>Kilograms:</hc-label><br>
-        <input hcInput formControlName="Kilograms" placeholder=" 80"></hc-form-field>
-        <hc-form-field><hc-label>FeetInches:</hc-label><br>
-        <input hcInput formControlName="FeetInches" placeholder=" 5' 11&rdquo;"></hc-form-field>
-        <hc-form-field><hc-label>Centimeters:</hc-label><br>
-        <input hcInput formControlName="Centimeters" placeholder=" 180"></hc-form-field>
-        <hc-form-field><hc-label>GUID:</hc-label><br>
-        <input hcInput formControlName="GUID" placeholder=" 0a2770b4-8e27-4cc9-b8c1-1d27de064bf9"></hc-form-field>
-        <hc-form-field><hc-label>Latitude:</hc-label><br>
-        <input hcInput formControlName="Latitude" placeholder=" 40.632934"></hc-form-field>
-        <hc-form-field><hc-label>Longitude:</hc-label><br>
-        <input hcInput formControlName="Longitude" placeholder=" -111.804025"></hc-form-field>
+        <hc-form-field>
+			<hc-label>MiddleInitial:</hc-label><br>
+        	<input hcInput formControlName="MiddleInitial" placeholder=" B">
+		</hc-form-field>
+        <hc-form-field>
+			<hc-label>Surname:</hc-label><br>
+        	<input hcInput formControlName="Surname" placeholder=" Jones">
+		</hc-form-field>
+        <hc-form-field>
+			<hc-label>StreetAddress:</hc-label><br>
+			  <input hcInput formControlName="StreetAddress" 
+			  placeholder=" 123 Fake Street">
+		</hc-form-field>
+        <hc-form-field>
+			<hc-label>City:</hc-label><br>
+        	<input hcInput formControlName="City" placeholder=" Salt Lake City">
+		</hc-form-field>
+        <hc-form-field>
+			<hc-label>State:</hc-label><br>
+        	<input hcInput formControlName="State" placeholder=" UT">
+		</hc-form-field>
+        <hc-form-field>
+			<hc-label>StateFull:</hc-label><br>
+        	<input hcInput formControlName="StateFull" placeholder=" Utah">
+		</hc-form-field>
+        <hc-form-field>
+			<hc-label>ZipCode:</hc-label><br>
+        	<input hcInput formControlName="ZipCode" placeholder=" 84108">
+		</hc-form-field>
+        <hc-form-field>
+			<hc-label>Country:</hc-label><br>
+        	<input hcInput formControlName="Country" placeholder=" USA">
+		</hc-form-field>
+        <hc-form-field>
+			<hc-label>CountryFull:</hc-label><br>
+			  <input hcInput formControlName="CountryFull" 
+			  placeholder=" United States of America">
+		</hc-form-field>
+        <hc-form-field>
+			<hc-label>EmailAddress:</hc-label><br>
+			  <input hcInput formControlName="EmailAddress" 
+			  placeholder=" bob@people.search.com">
+		</hc-form-field>
+        <hc-form-field>
+			<hc-label>Username:</hc-label><br>
+        	<input hcInput formControlName="Username" placeholder=" Bobby123">
+		</hc-form-field>
+        <hc-form-field>
+			<hc-label>Password:</hc-label><br>
+        	<input hcInput formControlName="Password" placeholder=" bobbyboy99">
+		</hc-form-field>
+        <hc-form-field>
+			<hc-label>BrowserUserAgent:</hc-label><br>
+			  <input hcInput formControlName="BrowserUserAgent" 
+			  placeholder=" Mozilla/5.0">
+		</hc-form-field>
+        <hc-form-field>
+			<hc-label>TelephoneNumber:</hc-label><br>
+			  <input hcInput formControlName="TelephoneNumber" 
+			  placeholder=" 123 456 7890">
+		</hc-form-field>
+        <hc-form-field>
+			<hc-label>TelephoneCountryCode:</hc-label><br>
+        	<input hcInput formControlName="TelephoneCountryCode" placeholder=" 1">
+		</hc-form-field>
+        <hc-form-field>
+			<hc-label>MothersMaiden:</hc-label><br>
+        	<input hcInput formControlName="MothersMaiden" placeholder=" Jane">
+		</hc-form-field>
+        <hc-form-field>
+			<hc-label>Birthday:</hc-label><br>
+			  <input hcInput formControlName="Birthday" 
+			  placeholder=" 1990-07-01T00:00:00-07:00">
+		</hc-form-field>
+        <hc-form-field>
+			<hc-label>Age:</hc-label><br>
+        	<input hcInput formControlName="Age" placeholder=" 42">
+		</hc-form-field>
+        <hc-form-field>
+			<hc-label>TropicalZodiac:</hc-label><br>
+        	<input hcInput formControlName="TropicalZodiac" placeholder=" Pisces">
+		</hc-form-field>
+        <hc-form-field>
+			<hc-label>CCType:</hc-label><br>
+        	<input hcInput formControlName="CCType" placeholder=" MasterCard">
+		</hc-form-field>
+        <hc-form-field>
+			<hc-label>CCNumber:</hc-label><br>
+			  <input hcInput formControlName="CCNumber" 
+			  placeholder=" 1234567823456789">
+		</hc-form-field>
+        <hc-form-field>
+			<hc-label>CVV2:</hc-label><br>
+        	<input hcInput formControlName="CVV2" placeholder=" 123">
+		</hc-form-field>
+        <hc-form-field>
+			<hc-label>CCExpires:</hc-label><br>
+        	<input hcInput formControlName="CCExpires" placeholder=" 1/2024">
+		</hc-form-field>
+        <hc-form-field>
+			<hc-label>NationalID:</hc-label><br>
+			  <input hcInput formControlName="NationalID" 
+			  placeholder=" 1234567890123">
+		</hc-form-field>
+        <hc-form-field>
+			<hc-label>UPS:</hc-label><br>
+			  <input hcInput formControlName="UPS" 
+			  placeholder=" 1Z 735 F86 80 4534 509 8">
+		</hc-form-field>
+        <hc-form-field>
+			<hc-label>WesternUnionMTCN:</hc-label><br>
+			  <input hcInput formControlName="WesternUnionMTCN" 
+			  placeholder=" 0445765305">
+		</hc-form-field>
+        <hc-form-field>
+			<hc-label>MoneyGramMTCN:</hc-label><br>
+        	<input hcInput formControlName="MoneyGramMTCN" placeholder=" 41415180">
+		</hc-form-field>
+        <hc-form-field>
+			<hc-label>Color:</hc-label><br>
+        	<input hcInput formControlName="Color" placeholder=" Blue">
+		</hc-form-field>
+        <hc-form-field>
+			<hc-label>Occupation:</hc-label><br>
+			  <input hcInput formControlName="Occupation" 
+			  placeholder=" Prospective Intern :)">
+		</hc-form-field>
+        <hc-form-field>
+			<hc-label>Company:</hc-label><br>
+			  <input hcInput formControlName="Company" 
+			  placeholder=" Health Catalyst">
+		</hc-form-field>
+        <hc-form-field>
+			<hc-label>Vehicle:</hc-label><br>
+			  <input hcInput formControlName="Vehicle" 
+			  placeholder=" 2001 Toyota Corolla">
+		</hc-form-field>
+        <hc-form-field>
+			<hc-label>Domain:</hc-label><br>
+			  <input hcInput formControlName="Domain" 
+			  placeholder=" CareerContract.co.za">
+		</hc-form-field>
+        <hc-form-field>
+			<hc-label>BloodType:</hc-label><br>
+			  <input hcInput formControlName="BloodType" 
+			  placeholder=" A-">
+		</hc-form-field>
+        <hc-form-field>
+			<hc-label>Pounds:</hc-label><br>
+        	<input hcInput formControlName="Pounds" placeholder=" 165">
+		</hc-form-field>
+        <hc-form-field>
+			<hc-label>Kilograms:</hc-label><br>
+        	<input hcInput formControlName="Kilograms" placeholder=" 80">
+		</hc-form-field>
+        <hc-form-field>
+			<hc-label>FeetInches:</hc-label><br>
+			  <input hcInput formControlName="FeetInches" 
+			  placeholder=" 5' 11&rdquo;">
+		</hc-form-field>
+        <hc-form-field>
+			<hc-label>Centimeters:</hc-label><br>
+        	<input hcInput formControlName="Centimeters" placeholder=" 180">
+		</hc-form-field>
+        <hc-form-field>
+			<hc-label>GUID:</hc-label><br>
+			  <input hcInput formControlName="GUID" 
+			  placeholder=" 0a2770b4-8e27-4cc9-b8c1-1d27de064bf9">
+		</hc-form-field>
+        <hc-form-field>
+			<hc-label>Latitude:</hc-label><br>
+        	<input hcInput formControlName="Latitude" placeholder=" 40.632934">
+		</hc-form-field>
+        <hc-form-field>
+			<hc-label>Longitude:</hc-label><br>
+        	<input hcInput formControlName="Longitude" placeholder=" -111.804025">
+		</hc-form-field>
     </div>
-    <!-- <button hc-button (click)="goBack()" buttonStyle="secondary">Back</button> -->
     <button hc-button type="submit" buttonStyle="primary" >Add</button>
 </form>
-<!-- <h2>Value:{{personDetails.GivenName.value | uppercase}} Details</h2> -->

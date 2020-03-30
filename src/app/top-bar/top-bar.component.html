@@ -1,18 +1,22 @@
-<hc-navbar appIcon="./assets/people-search-icon.svg" brandIcon="./assets/TriFlame.svg" [homeUri]="undefined" [fixedTop]="false">
+<hc-navbar appIcon="./assets/people-search-icon.svg"
+    brandIcon="./assets/TriFlame.svg" [homeUri]="undefined" [fixedTop]="false">
     <hc-navbar-link uri="people" linkText="People"></hc-navbar-link>
     <hc-navbar-link uri="search" linkText="Search"></hc-navbar-link>
     <hc-navbar-link uri="add" linkText="Add"></hc-navbar-link>
-    <hc-icon class="hc-navbar-icon" fontSet="fa" fontIcon="fa-question-circle-o" [hcPop]="options"></hc-icon>
+    <hc-icon class="hc-navbar-icon" fontSet="fa" fontIcon="fa-question-circle-o"
+        [hcPop]="options"></hc-icon>
 </hc-navbar>
 
-<hc-pop #options [autoCloseOnContentClick]="true" [showArrow]="false" horizontalAlign="end">
+<hc-pop #options [autoCloseOnContentClick]="true" [showArrow]="false"
+    horizontalAlign="end">
     <div hcMenu>
         <a hcMenuItem href="http://example.com" target="_blank">
             <hc-icon hcMenuIcon fontSet="fa" fontIcon="fa-book"></hc-icon>
             <span hcMenuText>Read the docs</span>
         </a>
         <a hcMenuItem href="http://example.com" target="_blank">
-            <hc-icon hcMenuIcon fontSet="fa" fontIcon="fa-lightbulb-o"></hc-icon>
+            <hc-icon hcMenuIcon fontSet="fa" 
+                fontIcon="fa-lightbulb-o"></hc-icon>
             <span hcMenuText>Request a feature</span>
         </a>
         <a hcMenuItem href="http://example.com" target="_blank">
@@ -21,7 +25,8 @@
         </a>
         <div hcMenuItem hcDivider></div>
         <a hcMenuItem href="about">
-            <hc-icon hcMenuIcon fontSet="fa" fontIcon="fa-info-circle"></hc-icon>
+            <hc-icon hcMenuIcon fontSet="fa" 
+                fontIcon="fa-info-circle"></hc-icon>
             <span hcMenuText>About</span>
         </a>
     </div>

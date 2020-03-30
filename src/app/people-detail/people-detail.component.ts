@@ -29,21 +29,16 @@ export class PeopleDetailComponent implements OnInit {
       .subscribe(person => this.person = person);
   }
 
-  save(): void {
-    var response = confirm(`Are you sure you want to save changes to ${this.person.GivenName} ${this.person.Surname}?`);
-    if (response) {
-      this.personService.updatePerson(this.person).subscribe(() => this.goBack());
-    }
-  }
-
   goBack(): void {
     this.location.back();
   }
 
   delete(): void {
-    var response = confirm(`Are you sure you want to remove ${this.person.GivenName} ${this.person.Surname}?`);
+    var response = confirm(`Are you sure you want to remove 
+      ${this.person.GivenName} ${this.person.Surname}?`);
     if (response) {
-      this.personService.deletePerson(this.person).subscribe(() => this.goBack());
+      this.personService.deletePerson(this.person)
+        .subscribe(() => this.goBack());
     }
   }
 }

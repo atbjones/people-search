@@ -1,11 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import { FormBuilder, FormControl, Validators } from '@angular/forms'
+import { FormBuilder, Validators } from '@angular/forms'
 
 import { Person } from '../person';
 import { PersonService } from '../person.service';
-import { FormFieldModule } from '@healthcatalyst/cashmere';
 
 @Component({
   selector: 'app-edit-person',
@@ -13,13 +12,6 @@ import { FormFieldModule } from '@healthcatalyst/cashmere';
   styleUrls: ['./edit-person.component.scss']
 })
 export class EditPersonComponent implements OnInit {
-  selectControl = new FormControl('daily');
-  inputControl = new FormControl('');
-
-  invalidForm() {
-    this.selectControl.setErrors({incorrect: true});
-    this.inputControl.setErrors({incorrect: true});
-  }
   personForm;
   @Input() person: Person;
 
@@ -28,7 +20,6 @@ export class EditPersonComponent implements OnInit {
     private personService: PersonService,
     private location: Location,
     private formBuilder: FormBuilder,
-    private formField: FormFieldModule,
   ) {
     this.personForm = this.formBuilder.group({
       Gender: [''],
@@ -106,20 +97,25 @@ export class EditPersonComponent implements OnInit {
       this.personForm.get('EmailAddress').setValue(this.person.EmailAddress);
       this.personForm.get('Username').setValue(this.person.Username);
       this.personForm.get('Password').setValue(this.person.Password);
-      this.personForm.get('BrowserUserAgent').setValue(this.person.BrowserUserAgent);
-      this.personForm.get('TelephoneNumber').setValue(this.person.TelephoneNumber);
-      this.personForm.get('TelephoneCountryCode').setValue(this.person.TelephoneCountryCode);
+      this.personForm.get('BrowserUserAgent')
+      .setValue(this.person.BrowserUserAgent);
+      this.personForm.get('TelephoneNumber')
+      .setValue(this.person.TelephoneNumber);
+      this.personForm.get('TelephoneCountryCode')
+      .setValue(this.person.TelephoneCountryCode);
       this.personForm.get('MothersMaiden').setValue(this.person.MothersMaiden);
       this.personForm.get('Birthday').setValue(this.person.Birthday);
       this.personForm.get('Age').setValue(this.person.Age);
-      this.personForm.get('TropicalZodiac').setValue(this.person.TropicalZodiac);
+      this.personForm.get('TropicalZodiac')
+      .setValue(this.person.TropicalZodiac);
       this.personForm.get('CCType').setValue(this.person.CCType);
       this.personForm.get('CCNumber').setValue(this.person.CCNumber);
       this.personForm.get('CVV2').setValue(this.person.CVV2);
       this.personForm.get('CCExpires').setValue(this.person.CCExpires);
       this.personForm.get('NationalID').setValue(this.person.NationalID);
       this.personForm.get('UPS').setValue(this.person.UPS);
-      this.personForm.get('WesternUnionMTCN').setValue(this.person.WesternUnionMTCN);
+      this.personForm.get('WesternUnionMTCN')
+      .setValue(this.person.WesternUnionMTCN);
       this.personForm.get('MoneyGramMTCN').setValue(this.person.MoneyGramMTCN);
       this.personForm.get('Color').setValue(this.person.Color);
       this.personForm.get('Occupation').setValue(this.person.Occupation);
@@ -182,12 +178,7 @@ export class EditPersonComponent implements OnInit {
     this.person.GUID = personData.GUID;
     this.person.Latitude = +personData.Latitude;
     this.person.Longitude = +personData.Longitude
-    // for (const field in this.personForm.controls) {
-    //   if (TCC, age, pounds, kgs, cm, lat, lon)
-    //     this.person.field = +personData.field;
-    //   else
-    //     this.person.field = personData.field;
-    // }
+
     this.personService.updatePerson(this.person).subscribe(() => this.goBack())
   }
 }

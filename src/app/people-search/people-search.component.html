@@ -1,22 +1,9 @@
 <div id="search-component">
-    <h3><i class="fa fa-search"><label for="search-box"> Person Search</label></i></h3>
-
-    <!-- <form name="myForm">
-        <label for="singleSelect"> Sort By </label><br>
-        <select #sortBy name="singleSelect" ng-model="data.singleSelect" (change)="sortby(sortBy.value)">
-            <option value="Name">Name</option>
-            <option value="Age">Age</option>
-        </select><br>
-    </form> -->
+    <h3><i class="fa fa-search"><label for="search-box">
+         Person Search</label></i></h3>
     <input #searchBox id="search-box" (input)="search(searchBox.value)" />
-
-    <!-- <ul class="search-result">
-        <li *ngFor="let person of people$ | async" >
-            <a routerLink="/people/{{person.Id}}">{{person.name}}</a>
-        </li>
-    </ul> -->
 </div>
-<!-- <button (click)="searchPeople()">Search</button> -->
+
 <div *ngIf="searchBox.value && people.value">
     <div *ngIf="people.value.length > 0; else noResults"> 
             <table class="hc-table hc-action-table">
@@ -32,7 +19,8 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let person of people.value | slice:0:loadAmount" routerLink="/people/{{person.Id}}">
+                    <tr *ngFor="let person of people.value | slice:0:loadAmount"
+                        routerLink="/people/{{person.Id}}">
                         <td>{{person.Id}}</td>
                         <td>{{person.GivenName}}</td>
                         <td>{{person.MiddleInitial}}</td>
@@ -44,33 +32,11 @@
                 </tbody>
             </table>
             <div *ngIf="people.value.length > loadAmount">
-                <button hc-button class="loadMore" buttonStyle="secondary" title="Load More" (click)="loadMore()">Load More</button>
+                <button hc-button class="loadMore" buttonStyle="secondary" 
+                    title="Load More" (click)="loadMore()">Load More</button>
             </div>
     </div>
     <ng-template #noResults>
             <br><span>No Results...</span>
         </ng-template>
 </div>
-<!-- <div id="search-results" *ngIf="people.value">
-    <ul class="people-results">
-        <li *ngFor="let person of people.value">
-            <a routerLink="/people/{{person.Id}}">
-                {{ person.GivenName }} {{ person.Surname }}
-            </a><br>
-        </li>
-    </ul>
-</div> -->
-<!-- <ng-template #elseBlock>
-    <p>No Results</p>
-</ng-template> -->
-
-<!-- <div ng-controller="ExampleController">
-    <form name="myForm">
-      <label for="singleSelect"> SearchBy </label><br>
-      <select #searchBy name="singleSelect" ng-model="data.singleSelect" (change)="searchby(searchBy.value)">
-        <option value="GivenName">GivenName</option>
-        <option value="Surname">Surname</option>
-      </select><br>
-    </form>
-</div> -->
-  

@@ -40,27 +40,28 @@ export class PersonService {
     );
   }
 
-  searchPeople(by: string, term: string): Observable<Person[]> {
+  searchPeople(term: string): Observable<Person[]> {
     if (!term.trim()) {
       // if not search term, return empty person array.
       return of([]);
     }
-    if (by == 'Name'){
-      return this.http.get<Person[]>(`${this.apiUrl}People/?$filter=
+      return this.http.get<Person[]>(`${this.apiUrl}People/?$orderby=Id asc
+      &($filter=
       (contains(tolower(GivenName),tolower('${term}'))) or 
-      (contains(tolower(Surname),tolower('${term}')))`).pipe(
+      (contains(tolower(Surname),tolower('${term}'))))`).pipe(
         tap(_ => this.log(`fetched searched people`)),
         catchError(this.handleError<Person[]>(`getPeople`))
       );
-    }
   }
 
   // Save methods //
   addPerson (person: Person): Observable<Person> {
-    return this.http.post<Person>(`${this.apiUrl}People`, person, this.httpOptions).pipe(
-      tap((newPerson: Person) => this.log(`added person w/ id=${newPerson.Id}`)),
-      catchError(this.handleError<Person>('addPerson'))
-    );
+    return this.http.post<Person>(`${this.apiUrl}People`,
+      person, this.httpOptions).pipe(
+        tap((newPerson: Person) => 
+          this.log(`added person w/ id=${newPerson.Id}`)),
+          catchError(this.handleError<Person>('addPerson'))
+      );
   }
 
   deletePerson (person: Person): Observable<any> {
@@ -74,7 +75,8 @@ export class PersonService {
   }
 
   updatePerson (person: Person): Observable<any> {
-    return this.http.put(`${this.apiUrl}People(${person.Id})`, person, this.httpOptions).pipe(
+    return this.http.put(`${this.apiUrl}People(${person.Id})`,
+      person, this.httpOptions).pipe(
       tap(_ => this.log(`update person id=${person.Id}`)),
       catchError(this.handleError<any>('updatePerson'))
     );

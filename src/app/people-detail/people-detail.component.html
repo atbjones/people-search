@@ -1,8 +1,13 @@
 <div *ngIf="person">
-    <h3><i class="fa fa-address-card"> {{person.GivenName | uppercase}} {{person.Surname | uppercase}} Details</i></h3>
-    <button hc-button buttonStyle="secondary" (click)="goBack()">Back</button>
-    <button hc-button buttonStyle="secondary" routerLink="/edit/{{person.Id}}">Edit</button>
-    <button hc-button buttonStyle="secondary" (click)="delete()">Delete</button>
+    <h3><i class="fa fa-address-card"> 
+      {{person.GivenName | uppercase}} {{person.Surname | uppercase}} 
+      Details</i></h3>
+    <button hc-button buttonStyle="secondary" 
+      (click)="goBack()">Back</button>
+    <button hc-button buttonStyle="secondary" 
+      routerLink="/edit/{{person.Id}}">Edit</button>
+    <button hc-button buttonStyle="secondary" 
+      (click)="delete()">Delete</button>
     <table class="hc-table" style="max-width: 500px">
       <tbody>
         <tr>
@@ -188,9 +193,9 @@
       </tbody>
     </table>
 
-
     <button hc-button buttonStyle="secondary" (click)="goBack()">Back</button>
-    <button hc-button buttonStyle="secondary" routerLink="/edit/{{person.Id}}">Edit</button>
+    <button hc-button buttonStyle="secondary" 
+      routerLink="/edit/{{person.Id}}">Edit</button>
     <button hc-button buttonStyle="secondary" (click)="delete()">Delete</button>
   </div>
   

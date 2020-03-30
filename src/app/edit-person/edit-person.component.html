@@ -1,101 +1,201 @@
 <div *ngIf="person">
-<h3><i class="fa fa-edit"> Edit {{person.GivenName}} {{person.Surname}}</i> </h3>
-<!-- <hc-form-field>GivenName is required</hc-form-field> -->
-<form [formGroup]="personForm" (ngSubmit)="onSubmit(personForm.value)">
-    <button hc-button buttonStyle="secondary" (click)="goBack()">Back</button>
-    <button hc-button buttonStyle="primary" type="submit" [disabled]=" !personForm.valid">Save Changes</button>
-    <div class="formInput"> <!-- *ngFor="formcontrolname in formgroup">-->
-        <hc-form-field><hc-label>Gender: </hc-label>
-        <input hcInput formControlName="Gender" ></hc-form-field>
-        <hc-form-field><hc-label>NameSet:</hc-label>
-        <input hcInput formControlName="NameSet" ></hc-form-field>
-        <hc-form-field><hc-label>Title:</hc-label>
-        <input hcInput formControlName="Title" ></hc-form-field>
-        <hc-form-field><hc-label>GivenName:</hc-label>
-        <input hcInput  formControlName="GivenName" ></hc-form-field>
-        <hc-form-field><hc-label>MiddleInitial:</hc-label>
-        <input hcInput formControlName="MiddleInitial" ></hc-form-field>
-        <hc-form-field><hc-label>Surname:</hc-label>
-        <input hcInput formControlName="Surname" ></hc-form-field>
-        <hc-form-field><hc-label>StreetAddress:</hc-label>
-        <input hcInput formControlName="StreetAddress" ></hc-form-field>
-        <hc-form-field><hc-label>City:</hc-label>
-        <input hcInput formControlName="City" ></hc-form-field>
-        <hc-form-field><hc-label>State:</hc-label>
-        <input hcInput formControlName="State" ></hc-form-field>
-        <hc-form-field><hc-label>StateFull:</hc-label>
-        <input hcInput formControlName="StateFull" ></hc-form-field>
-        <hc-form-field><hc-label>ZipCode:</hc-label>
-        <input hcInput formControlName="ZipCode" ></hc-form-field>
-        <hc-form-field><hc-label>Country:</hc-label>
-        <input hcInput formControlName="Country" ></hc-form-field>
-        <hc-form-field><hc-label>CountryFull:</hc-label>
-        <input hcInput formControlName="CountryFull" ></hc-form-field>
-        <hc-form-field><hc-label>EmailAddress:</hc-label>
-        <input hcInput formControlName="EmailAddress" ></hc-form-field>
-        <hc-form-field><hc-label>Username:</hc-label>
-        <input hcInput formControlName="Username" ></hc-form-field>
-        <hc-form-field><hc-label>Password:</hc-label>
-        <input hcInput formControlName="Password" ></hc-form-field>
-        <hc-form-field><hc-label>BrowserUserAgent:</hc-label>
-        <input hcInput formControlName="BrowserUserAgent" ></hc-form-field>
-        <hc-form-field><hc-label>TelephoneNumber:</hc-label>
-        <input hcInput formControlName="TelephoneNumber" ></hc-form-field>
-        <hc-form-field><hc-label>TelephoneCountryCode:</hc-label>
-        <input hcInput formControlName="TelephoneCountryCode"></hc-form-field>
-        <hc-form-field><hc-label>MothersMaiden:</hc-label>
-        <input hcInput formControlName="MothersMaiden" ></hc-form-field>
-        <hc-form-field><hc-label>Birthday:</hc-label>
-        <input hcInput formControlName="Birthday" ></hc-form-field>
-        <hc-form-field><hc-label>Age:</hc-label>
-        <input hcInput formControlName="Age" ></hc-form-field>
-        <hc-form-field><hc-label>TropicalZodiac:</hc-label>
-        <input hcInput formControlName="TropicalZodiac" ></hc-form-field>
-        <hc-form-field><hc-label>CCType:</hc-label>
-        <input hcInput formControlName="CCType" ></hc-form-field>
-        <hc-form-field><hc-label>CCNumber:</hc-label>
-        <input hcInput formControlName="CCNumber" ></hc-form-field>
-        <hc-form-field><hc-label>CVV2:</hc-label>
-        <input hcInput formControlName="CVV2" ></hc-form-field>
-        <hc-form-field><hc-label>CCExpires:</hc-label>
-        <input hcInput formControlName="CCExpires" ></hc-form-field>
-        <hc-form-field><hc-label>NationalID:</hc-label>
-        <input hcInput formControlName="NationalID" ></hc-form-field>
-        <hc-form-field><hc-label>UPS:</hc-label>
-        <input hcInput formControlName="UPS" ></hc-form-field>
-        <hc-form-field><hc-label>WesternUnionMTCN:</hc-label>
-        <input hcInput formControlName="WesternUnionMTCN" ></hc-form-field>
-        <hc-form-field><hc-label>MoneyGramMTCN:</hc-label>
-        <input hcInput formControlName="MoneyGramMTCN" ></hc-form-field>
-        <hc-form-field><hc-label>Color:</hc-label>
-        <input hcInput formControlName="Color" ></hc-form-field>
-        <hc-form-field><hc-label>Occupation:</hc-label>
-        <input hcInput formControlName="Occupation" ></hc-form-field>
-        <hc-form-field><hc-label>Company:</hc-label>
-        <input hcInput formControlName="Company" ></hc-form-field>
-        <hc-form-field><hc-label>Vehicle:</hc-label>
-        <input hcInput formControlName="Vehicle" ></hc-form-field>
-        <hc-form-field><hc-label>Domain:</hc-label>
-        <input hcInput formControlName="Domain" ></hc-form-field>
-        <hc-form-field><hc-label>BloodType:</hc-label>
-        <input hcInput formControlName="BloodType" ></hc-form-field>
-        <hc-form-field><hc-label>Pounds:</hc-label>
-        <input hcInput formControlName="Pounds" ></hc-form-field>
-        <hc-form-field><hc-label>Kilograms:</hc-label>
-        <input hcInput formControlName="Kilograms" ></hc-form-field>
-        <hc-form-field><hc-label>FeetInches:</hc-label>
-        <input hcInput formControlName="FeetInches" ></hc-form-field>
-        <hc-form-field><hc-label>Centimeters:</hc-label>
-        <input hcInput formControlName="Centimeters" ></hc-form-field>
-        <hc-form-field><hc-label>GUID:</hc-label>
-        <input hcInput formControlName="GUID" ></hc-form-field>
-        <hc-form-field><hc-label>Latitude:</hc-label>
-        <input hcInput formControlName="Latitude" ></hc-form-field>
-        <hc-form-field><hc-label>Longitude:</hc-label>
-        <input hcInput formControlName="Longitude" ></hc-form-field>
-    </div>
-    <button hc-button buttonStyle="secondary" (click)="goBack()">Back</button>
-    <button hc-button buttonStyle="primary" type="submit" [disabled]=" !personForm.valid">Save Changes</button>
-</form>
+    <h3><i class="fa fa-edit"> 
+        Edit {{person.GivenName}} {{person.Surname}}</i> </h3>
+    <button hc-button 
+        buttonStyle="secondary" 
+        (click)="goBack()">
+        Back
+    </button>
+    <form [formGroup]="personForm" (ngSubmit)="onSubmit(personForm.value)">
+        <button hc-button 
+            buttonStyle="primary" 
+            type="submit" 
+            [disabled]=" !personForm.valid">
+            Save Changes
+        </button>
+        <div class="formInput">
+            <hc-form-field>
+                <hc-label>Gender: </hc-label>
+                <input hcInput formControlName="Gender" >
+            </hc-form-field>
+            <hc-form-field>
+                <hc-label>NameSet:</hc-label>
+                <input hcInput formControlName="NameSet" >
+            </hc-form-field>
+            <hc-form-field>
+                <hc-label>Title:</hc-label>
+                <input hcInput formControlName="Title" >
+            </hc-form-field>
+            <hc-form-field>
+                <hc-label>GivenName:</hc-label>
+                <input hcInput  formControlName="GivenName" >
+            </hc-form-field>
+            <hc-form-field>
+                <hc-label>MiddleInitial:</hc-label>
+                <input hcInput formControlName="MiddleInitial" >
+            </hc-form-field>
+            <hc-form-field>
+                <hc-label>Surname:</hc-label>
+                <input hcInput formControlName="Surname" >
+            </hc-form-field>
+            <hc-form-field>
+                <hc-label>StreetAddress:</hc-label>
+                <input hcInput formControlName="StreetAddress" >
+            </hc-form-field>
+            <hc-form-field>
+                <hc-label>City:</hc-label>
+                <input hcInput formControlName="City" >
+            </hc-form-field>
+            <hc-form-field>
+                <hc-label>State:</hc-label>
+                <input hcInput formControlName="State" >
+            </hc-form-field>
+            <hc-form-field>
+                <hc-label>StateFull:</hc-label>
+                <input hcInput formControlName="StateFull" >
+            </hc-form-field>
+            <hc-form-field>
+                <hc-label>ZipCode:</hc-label>
+                <input hcInput formControlName="ZipCode" >
+            </hc-form-field>
+            <hc-form-field>
+                <hc-label>Country:</hc-label>
+                <input hcInput formControlName="Country" >
+            </hc-form-field>
+            <hc-form-field>
+                <hc-label>CountryFull:</hc-label>
+                <input hcInput formControlName="CountryFull" >
+            </hc-form-field>
+            <hc-form-field>
+                <hc-label>EmailAddress:</hc-label>
+                <input hcInput formControlName="EmailAddress" >
+            </hc-form-field>
+            <hc-form-field>
+                <hc-label>Username:</hc-label>
+                <input hcInput formControlName="Username" >
+            </hc-form-field>
+            <hc-form-field>
+                <hc-label>Password:</hc-label>
+                <input hcInput formControlName="Password" >
+            </hc-form-field>
+            <hc-form-field>
+                <hc-label>BrowserUserAgent:</hc-label>
+                <input hcInput formControlName="BrowserUserAgent" >
+            </hc-form-field>
+            <hc-form-field>
+                <hc-label>TelephoneNumber:</hc-label>
+                <input hcInput formControlName="TelephoneNumber" >
+            </hc-form-field>
+            <hc-form-field>
+                <hc-label>TelephoneCountryCode:</hc-label>
+                <input hcInput formControlName="TelephoneCountryCode">
+            </hc-form-field>
+            <hc-form-field>
+                <hc-label>MothersMaiden:</hc-label>
+                <input hcInput formControlName="MothersMaiden" >
+            </hc-form-field>
+            <hc-form-field>
+                <hc-label>Birthday:</hc-label>
+                <input hcInput formControlName="Birthday" >
+            </hc-form-field>
+            <hc-form-field>
+                <hc-label>Age:</hc-label>
+                <input hcInput formControlName="Age" >
+            </hc-form-field>
+            <hc-form-field>
+                <hc-label>TropicalZodiac:</hc-label>
+                <input hcInput formControlName="TropicalZodiac" >
+            </hc-form-field>
+            <hc-form-field>
+                <hc-label>CCType:</hc-label>
+                <input hcInput formControlName="CCType" >
+            </hc-form-field>
+            <hc-form-field>
+                <hc-label>CCNumber:</hc-label>
+                <input hcInput formControlName="CCNumber" >
+            </hc-form-field>
+            <hc-form-field>
+                <hc-label>CVV2:</hc-label>
+                <input hcInput formControlName="CVV2" >
+            </hc-form-field>
+            <hc-form-field>
+                <hc-label>CCExpires:</hc-label>
+                <input hcInput formControlName="CCExpires" >
+            </hc-form-field>
+            <hc-form-field>
+                <hc-label>NationalID:</hc-label>
+                <input hcInput formControlName="NationalID" >
+            </hc-form-field>
+            <hc-form-field>
+                <hc-label>UPS:</hc-label>
+                <input hcInput formControlName="UPS" >
+            </hc-form-field>
+            <hc-form-field>
+                <hc-label>WesternUnionMTCN:</hc-label>
+                <input hcInput formControlName="WesternUnionMTCN" >
+            </hc-form-field>
+            <hc-form-field>
+                <hc-label>MoneyGramMTCN:</hc-label>
+                <input hcInput formControlName="MoneyGramMTCN" >
+            </hc-form-field>
+            <hc-form-field>
+                <hc-label>Color:</hc-label>
+                <input hcInput formControlName="Color" >
+            </hc-form-field>
+            <hc-form-field>
+                <hc-label>Occupation:</hc-label>
+                <input hcInput formControlName="Occupation" >
+            </hc-form-field>
+            <hc-form-field>
+                <hc-label>Company:</hc-label>
+                <input hcInput formControlName="Company" >
+            </hc-form-field>
+            <hc-form-field>
+                <hc-label>Vehicle:</hc-label>
+                <input hcInput formControlName="Vehicle" >
+            </hc-form-field>
+            <hc-form-field>
+                <hc-label>Domain:</hc-label>
+                <input hcInput formControlName="Domain" >
+            </hc-form-field>
+            <hc-form-field>
+                <hc-label>BloodType:</hc-label>
+                <input hcInput formControlName="BloodType" >
+            </hc-form-field>
+            <hc-form-field>
+                <hc-label>Pounds:</hc-label>
+                <input hcInput formControlName="Pounds" >
+            </hc-form-field>
+            <hc-form-field>
+                <hc-label>Kilograms:</hc-label>
+                <input hcInput formControlName="Kilograms" >
+            </hc-form-field>
+            <hc-form-field>
+                <hc-label>FeetInches:</hc-label>
+                <input hcInput formControlName="FeetInches" >
+            </hc-form-field>
+            <hc-form-field>
+                <hc-label>Centimeters:</hc-label>
+                <input hcInput formControlName="Centimeters" >
+            </hc-form-field>
+            <hc-form-field>
+                <hc-label>GUID:</hc-label>
+                <input hcInput formControlName="GUID" >
+            </hc-form-field>
+            <hc-form-field>
+                <hc-label>Latitude:</hc-label>
+                <input hcInput formControlName="Latitude" >
+            </hc-form-field>
+            <hc-form-field>
+                <hc-label>Longitude:</hc-label>
+                <input hcInput formControlName="Longitude" >
+            </hc-form-field>
+        </div>
+        <button hc-button 
+            buttonStyle="primary" 
+            type="submit" 
+            [disabled]=" !personForm.valid">
+            Save Changes
+        </button>
+    </form>
 </div>
-<!-- <h2>Value:{{personDetails.GivenName.value | uppercase}} Details</h2> -->
